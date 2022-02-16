@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="writeName">이름을 입력하시오.</string>
+    <string name="Hello">안녕하세요</string>
+</resources>
