@@ -18,10 +18,12 @@ class MainActivity : AppCompatActivity() {
         btnStart.setOnClickListener {
 
             if(etName.text.isEmpty()){
-                Toast.makeText(this, "이름을 작성해주세요!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,
+                    "이름을 작성해주세요!", Toast.LENGTH_LONG).show()
             }
             else{
                 val intent = Intent(this, QuizQuestionsActivity::class.java)
+                intent.putExtra(Constants.USER_NAME, etName.text.toString())
                 startActivity(intent)
                 finish() // 뒤로 가기 버튼 누를시 종료
             }
