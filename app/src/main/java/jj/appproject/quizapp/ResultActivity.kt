@@ -1,8 +1,10 @@
 package jj.appproject.quizapp
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 
@@ -14,6 +16,7 @@ class ResultActivity : AppCompatActivity() {
         val tvName: TextView = findViewById(R.id.tv_name)
         val tvScore: TextView = findViewById(R.id.tv_score)
         val btnFinish: Button = findViewById(R.id.btn_finish)
+        val btnShare: Button = findViewById(R.id.btn_share)
 
         val userName = intent.getStringExtra(Constants.USER_NAME)
         tvName.text = userName
@@ -25,6 +28,19 @@ class ResultActivity : AppCompatActivity() {
 
         btnFinish.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        btnShare.setOnClickListener {
+            try {
+                val sendText = "share test"
+                val sendIntent = Intent()
+                sendIntent.action = Intent.ACTION_SEND
+                sendIntent.putExtra(Intent.EXTRA_TEXT, sendText)
+                sendIntent.type = "text/plain"
+                startActivity(Intent.createChooser(sendIntent, "Share"))
+            } catch (ignored: ActivityNotFoundException) {
+                Log.d("test", "ignored : $ignored")
+            }
         }
 
     }

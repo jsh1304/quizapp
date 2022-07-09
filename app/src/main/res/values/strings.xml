@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">퀴즈를맞추자</string>
+    <string name="app_name">퀴즈유</string>
     <string name="writeName">이름을 입력하시오.</string>
     <string name="Hello">안녕하세요</string>
 </resources>
